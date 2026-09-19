@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Custom Western hats shaped by hand in Utah." />
+    <meta name="theme-color" content="#ff3b0a" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Salt City Hat Co. | Custom Western Hats</title>
+  </head>
+  <body>
+    <main>
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <img class="hero__image" src="/assets/hero-clean.png" alt="A man in a dark Western hat and modern streetwear seated against concrete architecture with the Wasatch mountains behind him" />
+        <div class="hero__wash"></div>
+        <header class="site-header">
+          <a class="wordmark" href="#top" aria-label="Salt City Hat Co. home">
+            <img src="/assets/salt-city-lockup.svg" alt="Salt City Hat Co." />
+          </a>
+          <nav class="site-nav" id="primary-navigation" aria-label="Primary">
+            <a href="#story" data-nav-meta="Intro">Our Story</a>
+            <a href="#hats" data-nav-meta="01">Color</a>
+            <a href="#materials" data-nav-meta="02">Felt</a>
+            <a href="#size" data-nav-meta="03">Size</a>
+            <a href="#contact" data-nav-meta="04">Contact</a>
+            <a href="#process" data-nav-meta="Craft">Process</a>
+          </nav>
+          <div class="header-contact">
+            <a href="tel:+18019990655">801 999 0655</a>
+            <span>Call or text</span>
+          </div>
+          <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation">
+            <span></span><span></span><span></span>
+          </button>
+        </header>
+
+        <div class="hero__content">
+          <h1 id="hero-title" class="hero__title">
+            <span>The New</span>
+            <span class="accent">Wild West.</span>
+          </h1>
+          <p class="hero__support">Custom Western hats.<br />Shaped by hand in Utah.</p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#hats">
+              Make a hat
+              <svg aria-hidden="true" class="arrow" viewBox="0 0 36 18"><path d="M1 9h32M26 2l7 7-7 7"></path></svg>
+            </a>
+            <a class="button button--secondary" href="#story">
+              Our story
+              <svg aria-hidden="true" class="arrow" viewBox="0 0 36 18"><path d="M1 9h32M26 2l7 7-7 7"></path></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="story" id="story" aria-labelledby="story-title">
+        <div class="story__intro">
+          <p class="eyebrow">Salt Lake City <span aria-hidden="true">—</span> Utah</p>
+          <h2 id="story-title">Born along<br /><span class="accent">the Wasatch.</span></h2>
+          <p class="story__copy">
+            From the mountains above us to the streets below, the Wasatch Front shapes how we see the West. Every hat is shaped by hand here in Utah—one at a time, for the person who’ll wear it.
+          </p>
+        </div>
+        <figure class="story__image">
+          <img src="/assets/story-wasatch.png" alt="The Wasatch Front rising above Salt Lake City and modern concrete architecture" loading="lazy" />
+        </figure>
+      </section>
+
+      <div class="builder-intro" aria-label="Build your hat in four steps">
+        <strong>Build your hat</strong>
+        <span>Four choices. One made-for-you hat.</span>
+        <b aria-hidden="true">01—04</b>
+      </div>
+
+      <section class="colors" id="hats" aria-labelledby="colors-title">
+        <div class="colors__heading">
+          <div>
+            <p class="eyebrow">Step 01 <span aria-hidden="true">—</span> Color</p>
+            <h2 id="colors-title">Pick your<span class="accent">color.</span></h2>
+          </div>
+          <div class="colors__controls" aria-label="Hat color carousel controls">
+            <button type="button" data-scroll-direction="-1" aria-label="Previous hat colors">
+              <svg aria-hidden="true" class="arrow arrow--left" viewBox="0 0 36 18"><path d="M1 9h32M26 2l7 7-7 7"></path></svg>
+            </button>
+            <button class="colors__next" type="button" data-scroll-direction="1" aria-label="Next hat colors">
+              <svg aria-hidden="true" class="arrow" viewBox="0 0 36 18"><path d="M1 9h32M26 2l7 7-7 7"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="hat-rail" tabindex="0" aria-label="Seven available hat colors">
+          <label class="hat-card">
+            <input class="selection-input" type="radio" name="color" value="Salt" form="contact-form" required />
+            <span class="hat-card__number" aria-hidden="true">01</span>
+            <img src="/assets/hat-silver-belly.png" alt="Salt Western felt hat" />
+            <div class="hat-card__meta"><h3>Salt</h3><span class="hat-card__rule"></span><span class="hat-card__description">Cool light grey</span></div>
+          </label>
+          <label class="hat-card">
+            <input class="selection-input" type="radio" name="color" value="Bone" form="contact-form" />
+            <span class="hat-card__number" aria-hidden="true">02</span>
+            <img src="/assets/hat-fawn.png" alt="Bone Western felt hat" />
+            <div class="hat-card__meta"><h3>Bone</h3><span class="hat-card__rule"></span><span class="hat-card__description">Warm natural beige</span></div>
+          </label>
+          <label class="hat-card">
+            <input class="selection-input" type="radio" name="color" value="Fossil" form="contact-form" />
+            <span class="hat-card__number" aria-hidden="true">03</span>
+            <img src="/assets/hat-camel.png" alt="Fossil Western felt hat" />
+            <div class="hat-card__meta"><h3>Fossil</h3><span class="hat-card__rule"></span><span class="hat-card__description">Warm taupe</span></div>
+          </label>
+          <label class="hat-card">
+            <input class="selection-input" type="radio" name="color" value="Canyon" form="contact-form" />
+            <span class="hat-card__number" aria-hidden="true">04</span>
+            <img src="/assets/hat-dark-brown.png" alt="Canyon Western felt hat" loading="lazy" />
+            <div class="hat-card__meta"><h3>Canyon</h3><span class="hat-card__rule"></span><span class="hat-card__description">Deep brown</span></div>
+          </label>
+          <label class="hat-card">
+            <input class="selection-input" type="radio" name="color" value="Wheat" form="contact-form" />
+            <span class="hat-card__number" aria-hidden="true">05</span>
+            <img src="/assets/hat-tan.png" alt="Wheat Western felt hat" loading="lazy" />
+            <div class="hat-card__meta"><h3>Wheat</h3><span class="hat-card__rule"></span><span class="hat-card__description">Golden tan</span></div>
+          </label>
+          <label class="hat-card">
+            <input class="selection-input" type="radio" name="color" value="Juniper" form="contact-form" />
+            <span class="hat-card__number" aria-hidden="true">06</span>
+            <img src="/assets/hat-dark-green.png" alt="Juniper Western felt hat" loading="lazy" />
+            <div class="hat-card__meta"><h3>Juniper</h3><span class="hat-card__rule"></span><span class="hat-card__description">Moss olive</span></div>
+          </label>
+          <label class="hat-card">
+            <input class="selection-input" type="radio" name="color" value="Black" form="contact-form" />
+            <span class="hat-card__number" aria-hidden="true">07</span>
+            <img src="/assets/hat-black.png" alt="Black Western felt hat" loading="lazy" />
+            <div class="hat-card__meta"><h3>Black</h3><span class="hat-card__rule"></span><span class="hat-card__description">Soft black</span></div>
+          </label>
+        </div>
+
+      </section>
+
+      <section class="materials" id="materials" aria-labelledby="materials-title">
+        <div class="section-heading">
+          <p class="eyebrow">Step 02 <span aria-hidden="true">—</span> Felt</p>
+          <h2 id="materials-title">Choose your <span class="accent">felt.</span></h2>
+          <p>Five levels of feel, structure and durability. Color and felt are independent choices.</p>
+        </div>
+        <div class="materials__options">
+          <div class="materials__list">
+            <label class="material">
+              <input class="selection-input" type="radio" name="felt" value="Australian Wool" form="contact-form" required />
+              <div class="material__intro"><span class="material__badge">Everyday value</span><h3>Australian Wool</h3><p>Reliable performance at an approachable price.</p></div>
+              <div class="felt-specs">
+                <div><span>Weather</span><span class="felt-rating felt-rating--2" role="img" aria-label="2 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Resilience</span><span class="felt-rating felt-rating--2" role="img" aria-label="2 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Finish</span><span class="felt-rating felt-rating--2" role="img" aria-label="2 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+              </div>
+            </label>
+            <label class="material">
+              <input class="selection-input" type="radio" name="felt" value="Rabbit" form="contact-form" />
+              <div class="material__intro"><span class="material__badge">Refined feel</span><h3>Rabbit</h3><p>Softer in the hand with a smoother finish.</p></div>
+              <div class="felt-specs">
+                <div><span>Weather</span><span class="felt-rating felt-rating--3" role="img" aria-label="3 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Resilience</span><span class="felt-rating felt-rating--3" role="img" aria-label="3 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Finish</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+              </div>
+            </label>
+            <label class="material">
+              <input class="selection-input" type="radio" name="felt" value="80/20 Rabbit-Beaver" form="contact-form" />
+              <div class="material__intro"><span class="material__badge">Balanced upgrade</span><h3>80/20<br />Rabbit-Beaver</h3><p>Added beaver strength without losing softness.</p></div>
+              <div class="felt-specs">
+                <div><span>Weather</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Resilience</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Finish</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+              </div>
+            </label>
+            <label class="material">
+              <input class="selection-input" type="radio" name="felt" value="50/50 Rabbit-Beaver" form="contact-form" />
+              <div class="material__intro"><span class="material__badge">Serious wear</span><h3>50/50<br />Rabbit-Beaver</h3><p>Built for regular wear with a luxurious hand.</p></div>
+              <div class="felt-specs">
+                <div><span>Weather</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Resilience</span><span class="felt-rating felt-rating--5" role="img" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Finish</span><span class="felt-rating felt-rating--5" role="img" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+              </div>
+            </label>
+            <label class="material">
+              <input class="selection-input" type="radio" name="felt" value="100% Beaver" form="contact-form" />
+              <div class="material__intro"><span class="material__badge">Heirloom performance</span><h3>100% Beaver</h3><p>The highest level of longevity and refinement.</p></div>
+              <div class="felt-specs">
+                <div><span>Weather</span><span class="felt-rating felt-rating--5" role="img" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Resilience</span><span class="felt-rating felt-rating--5" role="img" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Finish</span><span class="felt-rating felt-rating--5" role="img" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="sizing" id="size" aria-labelledby="sizing-title">
+        <div class="section-heading">
+          <p class="eyebrow">Step 03 <span aria-hidden="true">—</span> Size</p>
+          <h2 id="sizing-title">Find your <span class="accent">fit.</span></h2>
+          <p>Measure around your head where the hat will sit. Keep the tape level and comfortably snug, then choose the closest measurement.</p>
+        </div>
+        <div class="sizing__content">
+          <figure class="measure-guide">
+            <svg viewBox="0 0 320 190" role="img" aria-labelledby="measure-title measure-desc">
+              <title id="measure-title">How to measure your head for a hat</title>
+              <desc id="measure-desc">Place a flexible measuring tape around the middle of the forehead and just above the ears, keeping it level.</desc>
+              <path class="measure-guide__head" d="M104 150c-9-18-14-39-14-63C90 41 118 16 160 16s70 25 70 71c0 24-5 45-14 63" />
+              <path class="measure-guide__ear" d="M92 80c-18-4-22 35 2 38M228 80c18-4 22 35-2 38" />
+              <ellipse class="measure-guide__tape" cx="160" cy="82" rx="91" ry="25" />
+              <path class="measure-guide__arrow" d="M66 82l12-7v14zM254 82l-12-7v14z" />
+            </svg>
+            <figcaption>Across the middle of your forehead, about 1/8 inch above your ears. Measure twice; keep the tape snug, not tight.</figcaption>
+          </figure>
+          <fieldset class="size-picker">
+            <legend>Choose your head measurement</legend>
+            <div class="size-picker__grid">
+              <label><input type="radio" name="headSize" value="54 cm / 21 1/2 in / US 6 3/4" form="contact-form" required /><strong>54 cm</strong><span>21 1/2 in · US 6 3/4</span></label>
+              <label><input type="radio" name="headSize" value="55 cm / 21 7/8 in / US 6 7/8" form="contact-form" /><strong>55 cm</strong><span>21 7/8 in · US 6 7/8</span></label>
+              <label><input type="radio" name="headSize" value="56 cm / 22 1/4 in / US 7" form="contact-form" /><strong>56 cm</strong><span>22 1/4 in · US 7</span></label>
+              <label><input type="radio" name="headSize" value="57 cm / 22 5/8 in / US 7 1/8" form="contact-form" /><strong>57 cm</strong><span>22 5/8 in · US 7 1/8</span></label>
+              <label><input type="radio" name="headSize" value="58 cm / 23 in / US 7 1/4" form="contact-form" /><strong>58 cm</strong><span>23 in · US 7 1/4</span></label>
+              <label><input type="radio" name="headSize" value="59 cm / 23 3/8 in / US 7 3/8" form="contact-form" /><strong>59 cm</strong><span>23 3/8 in · US 7 3/8</span></label>
+              <label><input type="radio" name="headSize" value="60 cm / 23 3/4 in / US 7 1/2" form="contact-form" /><strong>60 cm</strong><span>23 3/4 in · US 7 1/2</span></label>
+              <label><input type="radio" name="headSize" value="61 cm / 24 in / US 7 5/8" form="contact-form" /><strong>61 cm</strong><span>24 in · US 7 5/8</span></label>
+              <label><input type="radio" name="headSize" value="62 cm / 24 1/2 in / US 7 3/4" form="contact-form" /><strong>62 cm</strong><span>24 1/2 in · US 7 3/4</span></label>
+            </div>
+          </fieldset>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact__primary">
+          <p class="eyebrow">Step 04 <span aria-hidden="true">—</span> Send your request</p>
+          <h2 id="contact-title">Let's make<br /><span class="accent">your hat.</span></h2>
+          <p class="contact__phone">Call or text<br /><a href="tel:+18019990655">801-999-0655</a></p>
+          <div class="contact__actions">
+            <a class="button button--light" href="tel:+18019990655">Call now</a>
+            <a class="button button--outline-light" href="sms:+18019990655">Send a text</a>
+          </div>
+        </div>
+        <form class="contact__form" id="contact-form">
+          <div class="order-summary" aria-live="polite">
+            <p>Your hat</p>
+            <strong><span data-summary-color>Choose a color</span> / <span data-summary-felt>Choose a felt</span> / <span data-summary-size>Choose a size</span></strong>
+          </div>
+          <label>Name<input name="name" autocomplete="name" required /></label>
+          <label>Phone or email<input name="contact" autocomplete="email" required /></label>
+          <label>What are you thinking?<textarea name="message" rows="3" required></textarea></label>
+          <button type="submit">Send message <span aria-hidden="true">→</span></button>
+          <p>This opens a text message to Salt City Hat Co.</p>
+        </form>
+      </section>
+
+      <section class="process" id="process" aria-labelledby="process-title">
+        <div class="section-heading section-heading--dark">
+          <p class="eyebrow">How it's made <span aria-hidden="true">—</span></p>
+          <h2 id="process-title">Shaped by <span class="accent">hand.</span></h2>
+          <p>From raw open-crown body to finished hat, every piece is fitted, formed and detailed by hand in Utah.</p>
+        </div>
+        <div class="process__steps">
+          <article class="process-step process-step--body">
+            <div class="process-step__visual"><img src="/assets/process-open-crown.png" alt="A raw Salt wool open-crown hat body before custom shaping" loading="lazy" /></div>
+            <h3>Open crown</h3>
+          </article>
+          <article class="process-step process-step--crown">
+            <div class="process-step__visual"><img src="/assets/process-crown.png" alt="A hatmaker shaping a Salt felt cattleman crown over steam" loading="lazy" /></div>
+            <h3>Shape</h3>
+          </article>
+          <article class="process-step process-step--brim">
+            <div class="process-step__visual"><img src="/assets/process-brim.png" alt="A hatmaker working the brim of a Canyon felt hat" loading="lazy" /></div>
+            <h3>Form</h3>
+          </article>
+          <article class="process-step process-step--finish">
+            <div class="process-step__visual"><img src="/assets/process-finish.png" alt="A hatmaker adding the finishing band to a Juniper felt hat" loading="lazy" /></div>
+            <h3>Finish</h3>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <img src="/assets/salt-city-logo.svg" alt="Salt City Hat Co." />
+      <a href="tel:+18019990655">801-999-0655</a>
+      <p>Shaped by hand in Utah</p>
+    </footer>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
