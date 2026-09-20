@@ -112,7 +112,7 @@ button:focus-visible,
 
 .wordmark img {
   display: block;
-  width: clamp(5.0625rem, 6.375vw, 6.375rem);
+  width: clamp(6.075rem, 7.65vw, 7.65rem);
   height: auto;
 }
 
@@ -1154,7 +1154,7 @@ button:focus-visible,
   }
 
   .wordmark {
-    width: 5.0625rem;
+    width: 6.075rem;
   }
 
   .wordmark img {
