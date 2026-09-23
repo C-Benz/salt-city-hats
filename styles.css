@@ -987,6 +987,7 @@ body:has(.felt-dialog[open]) {
 }
 
 .felt-dialog__layout {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(22rem, 0.78fr) minmax(34rem, 1.22fr);
   height: 100%;
