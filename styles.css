@@ -648,7 +648,7 @@ button:focus-visible,
 .hat-card__number {
   position: absolute;
   z-index: 0;
-  top: -0.08em;
+  top: 0.04em;
   left: 0.05em;
   color: #eeeeee;
   font-family: var(--font-display);
