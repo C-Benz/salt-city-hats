@@ -1195,29 +1195,12 @@ body:has(.felt-dialog[open]) {
   background: var(--color-off-white);
 }
 
-.measure-guide svg {
+.measure-guide img {
   display: block;
   width: 100%;
-  max-height: 11rem;
-}
-
-.measure-guide__head,
-.measure-guide__ear {
-  fill: none;
-  stroke: var(--color-black);
-  stroke-linecap: round;
-  stroke-width: 5;
-}
-
-.measure-guide__tape {
-  fill: none;
-  stroke: var(--color-accent);
-  stroke-dasharray: 7 5;
-  stroke-width: 5;
-}
-
-.measure-guide__arrow {
-  fill: var(--color-accent);
+  height: auto;
+  border: 1px solid #e5e1da;
+  object-fit: cover;
 }
 
 .measure-guide figcaption {
