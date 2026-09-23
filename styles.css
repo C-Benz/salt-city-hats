@@ -486,7 +486,7 @@ button:focus-visible,
 
 .material-legend button span {
   color: #777773;
-  font-size: 0.58rem;
+  font-size: inherit;
   letter-spacing: 0.07em;
 }
 
