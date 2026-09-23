@@ -493,12 +493,20 @@ button:focus-visible,
 .hat-card__materials img {
   position: static;
   display: block;
-  width: 1.25rem;
-  height: 1.25rem;
   margin: 0;
   object-fit: contain;
   mix-blend-mode: normal;
   transition: none;
+}
+
+.material-legend img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.hat-card__materials img {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .colors__controls {
@@ -670,8 +678,8 @@ button:focus-visible,
 .hat-card__materials > span {
   display: grid;
   place-items: center;
-  width: 1.7rem;
-  height: 1.7rem;
+  width: 2rem;
+  height: 2rem;
   border: 1px solid #d6d6d0;
   border-radius: 50%;
   background: rgba(250, 250, 248, 0.9);
@@ -686,7 +694,7 @@ button:focus-visible,
 }
 
 .hat-card__description {
-  padding-right: 6.25rem;
+  padding-right: 7.25rem;
 }
 
 .hat-card__description {
