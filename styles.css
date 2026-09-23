@@ -447,22 +447,11 @@ button:focus-visible,
   text-transform: uppercase;
 }
 
-.color-context {
-  margin: 1.15rem 0 0;
-  color: #666663;
-  font-family: var(--font-label);
-  font-size: 0.68rem;
-  font-weight: var(--font-label-weight);
-  letter-spacing: 0.1em;
-  line-height: 1.4;
-  text-transform: uppercase;
-}
-
 .material-legend {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1rem;
-  margin-top: 0.75rem;
+  margin-top: 1.15rem;
   color: #4f4f4b;
   font-family: var(--font-label);
   font-size: 0.67rem;
@@ -471,10 +460,33 @@ button:focus-visible,
   text-transform: uppercase;
 }
 
-.material-legend span {
+.material-legend button {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  min-height: 2.15rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #cfcfca;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.material-legend button:hover,
+.material-legend button[aria-pressed="true"] {
+  border-color: var(--color-black);
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.material-legend button[aria-pressed="true"] img,
+.material-legend button:hover img {
+  filter: invert(1);
 }
 
 .material-legend img,

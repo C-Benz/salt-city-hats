@@ -7,7 +7,7 @@ const contactForm = document.querySelector("#contact-form");
 const selectionGroups = ["felt", "color", "headSize"];
 const feltInputs = document.querySelectorAll('input[name="felt"]');
 const colorCards = Array.from(document.querySelectorAll(".hat-card[data-palettes]"));
-const colorContext = document.querySelector("[data-color-context]");
+const materialFilterButtons = document.querySelectorAll("[data-material-filter]");
 const feltDialog = document.querySelector(".felt-dialog");
 const dialogConfirm = document.querySelector("[data-dialog-confirm]");
 const dialogConfirmLabel = document.querySelector("[data-dialog-confirm-label]");
@@ -15,6 +15,7 @@ const mobileNavigation = window.matchMedia("(max-width: 1080px)");
 let confirmedColor = null;
 let confirmedFelt = null;
 let activeColorCard = null;
+let activeMaterialFilter = null;
 
 const colorDisplayOrder = [
   "Salt", "Sand", "Bone", "Fossil",
@@ -50,6 +51,27 @@ function addMaterialAvailability() {
       .join("");
     card.append(availability);
   });
+}
+
+function colorSupportsMaterial(card, material) {
+  const palettes = card.dataset.palettes?.split(" ") || [];
+  const color = card.querySelector('input[name="color"]')?.value;
+  if (material === "wool") return palettes.includes("wool");
+  if (material === "rabbit") return palettes.includes("fur");
+  if (material === "beaver") return color === "Black";
+  return true;
+}
+
+function applyMaterialFilter() {
+  colorCards.forEach((card) => {
+    card.hidden = activeMaterialFilter ? !colorSupportsMaterial(card, activeMaterialFilter) : false;
+  });
+  materialFilterButtons.forEach((button) => {
+    if (!(button instanceof HTMLButtonElement)) return;
+    button.setAttribute("aria-pressed", String(button.dataset.materialFilter === activeMaterialFilter));
+  });
+  if (hatRail) hatRail.scrollLeft = 0;
+  window.requestAnimationFrame(updateCarouselControls);
 }
 
 function updateOrderSummary() {
@@ -194,12 +216,6 @@ function updateFeltAvailability() {
     if (unavailable && input.checked) input.checked = false;
   });
 
-  if (colorContext) {
-    colorContext.textContent = confirmedColor && confirmedFelt
-      ? `${confirmedColor} in ${confirmedFelt} selected. Choose any color to view or edit its felt options.`
-      : "Choose a color to compare its available felts.";
-  }
-
   const selectedFelt = document.querySelector('input[name="felt"]:checked');
   if (dialogConfirm instanceof HTMLButtonElement) dialogConfirm.disabled = !(selectedFelt instanceof HTMLInputElement);
   if (dialogConfirmLabel) {
@@ -264,6 +280,15 @@ colorCards.forEach((card) => {
   card.addEventListener("click", () => window.setTimeout(() => openFeltDialog(card), 0));
 });
 
+materialFilterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (!(button instanceof HTMLButtonElement)) return;
+    const requestedFilter = button.dataset.materialFilter || null;
+    activeMaterialFilter = activeMaterialFilter === requestedFilter ? null : requestedFilter;
+    applyMaterialFilter();
+  });
+});
+
 feltInputs.forEach((input) => input.addEventListener("change", updateFeltAvailability));
 
 document.querySelectorAll("[data-dialog-close]").forEach((button) => button.addEventListener("click", cancelFeltDialog));
@@ -289,6 +314,7 @@ dialogConfirm?.addEventListener("click", () => {
 });
 
 addMaterialAvailability();
+applyMaterialFilter();
 updateFeltAvailability();
 
 carouselButtons.forEach((button) => {
