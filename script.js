@@ -266,7 +266,10 @@ function openFeltDialog(card) {
   if (dialogLayout instanceof HTMLElement) dialogLayout.scrollTop = 0;
   if (feltList instanceof HTMLElement) feltList.scrollTop = 0;
 
-  if (!feltDialog.open) feltDialog.showModal();
+  if (!feltDialog.open) {
+    feltDialog.showModal();
+    feltDialog.focus({ preventScroll: true });
+  }
 }
 
 function cancelFeltDialog() {
