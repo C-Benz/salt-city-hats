@@ -996,6 +996,11 @@ body:has(.felt-dialog[open]) {
   line-height: 1;
 }
 
+.felt-dialog__color > .eyebrow {
+  position: relative;
+  z-index: 2;
+}
+
 .felt-dialog__color > img {
   position: relative;
   z-index: 1;
@@ -1081,14 +1086,41 @@ body:has(.felt-dialog[open]) {
 }
 
 .felt-dialog .materials__list {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 }
 
 .felt-dialog .material {
-  min-height: 14rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(13rem, 1.25fr) minmax(13rem, 0.75fr);
+  align-items: end;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  min-height: 0;
+  padding: 1.4rem 1.5rem;
 }
 
-.felt-dialog .material[hidden] {
+.felt-dialog .material--unavailable {
+  filter: grayscale(1);
+  opacity: 0.48;
+}
+
+.material__unavailable-note {
+  position: absolute;
+  top: 1.15rem;
+  right: 1.5rem;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid #9a9a96;
+  background: var(--color-off-white);
+  color: #4f4f4b;
+  font-family: var(--font-label);
+  font-size: 0.55rem;
+  font-weight: var(--font-label-weight);
+  letter-spacing: 0.11em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.material__unavailable-note[hidden] {
   display: none;
 }
 
@@ -1672,6 +1704,18 @@ body:has(.felt-dialog[open]) {
 
   .felt-dialog .materials__list {
     grid-template-columns: 1fr;
+  }
+
+  .felt-dialog .material {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+
+  .material__unavailable-note {
+    position: static;
+    justify-self: start;
+    grid-row: 1;
   }
 
   .materials__options {
