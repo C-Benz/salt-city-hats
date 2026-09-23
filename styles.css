@@ -484,6 +484,17 @@ button:focus-visible,
   color: var(--color-white);
 }
 
+.material-legend button span {
+  color: #777773;
+  font-size: 0.58rem;
+  letter-spacing: 0.07em;
+}
+
+.material-legend button:hover span,
+.material-legend button[aria-pressed="true"] span {
+  color: #cfcfca;
+}
+
 .material-legend button[aria-pressed="true"] img,
 .material-legend button:hover img {
   filter: invert(1);
