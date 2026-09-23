@@ -10,7 +10,7 @@ const colorCards = Array.from(document.querySelectorAll(".hat-card[data-palettes
 const colorContext = document.querySelector("[data-color-context]");
 const feltDialog = document.querySelector(".felt-dialog");
 const dialogConfirm = document.querySelector("[data-dialog-confirm]");
-const dialogStatus = document.querySelector("[data-dialog-status]");
+const dialogConfirmLabel = document.querySelector("[data-dialog-confirm-label]");
 const mobileNavigation = window.matchMedia("(max-width: 1080px)");
 let confirmedColor = null;
 let confirmedFelt = null;
@@ -195,10 +195,10 @@ function updateFeltAvailability() {
 
   const selectedFelt = document.querySelector('input[name="felt"]:checked');
   if (dialogConfirm instanceof HTMLButtonElement) dialogConfirm.disabled = !(selectedFelt instanceof HTMLInputElement);
-  if (dialogStatus) {
-    dialogStatus.textContent = selectedFelt instanceof HTMLInputElement
-      ? `${selectedColor?.value || "Color"} in ${selectedFelt.value}`
-      : "Select a felt to complete your color choice.";
+  if (dialogConfirmLabel) {
+    dialogConfirmLabel.textContent = selectedFelt instanceof HTMLInputElement && selectedColor instanceof HTMLInputElement
+      ? `Choose ${selectedFelt.value} Felt in ${selectedColor.value}`
+      : "Choose a felt";
   }
   updateOrderSummary();
 }
@@ -234,6 +234,12 @@ function openFeltDialog(card) {
   if (dialogColor) dialogColor.textContent = input.value;
   if (dialogNumber) dialogNumber.textContent = sourceNumber?.textContent || "";
   if (dialogDescription) dialogDescription.textContent = sourceDescription?.textContent || "";
+
+  const dialogLayout = feltDialog.querySelector(".felt-dialog__layout");
+  const feltList = feltDialog.querySelector(".materials__options");
+  feltDialog.scrollTop = 0;
+  if (dialogLayout instanceof HTMLElement) dialogLayout.scrollTop = 0;
+  if (feltList instanceof HTMLElement) feltList.scrollTop = 0;
 
   if (!feltDialog.open) feltDialog.showModal();
 }
