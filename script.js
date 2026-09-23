@@ -176,8 +176,13 @@ function updateFeltAvailability() {
     input.disabled = unavailable;
     material?.classList.toggle("material--unavailable", unavailable);
     material?.setAttribute("aria-disabled", String(unavailable));
-    const unavailableNote = material?.querySelector(".material__unavailable-note");
-    if (unavailableNote instanceof HTMLElement) unavailableNote.hidden = !unavailable;
+    const badge = material?.querySelector(".material__badge");
+    if (badge instanceof HTMLElement) {
+      badge.dataset.defaultLabel ||= badge.textContent || "";
+      badge.textContent = unavailable && selectedColor instanceof HTMLInputElement
+        ? `Not available in ${selectedColor.value}`
+        : badge.dataset.defaultLabel;
+    }
 
     if (unavailable && input.checked) input.checked = false;
   });
@@ -237,16 +242,6 @@ function cancelFeltDialog() {
   restoreConfirmedSelection();
   if (feltDialog instanceof HTMLDialogElement && feltDialog.open) feltDialog.close();
 }
-
-feltInputs.forEach((input) => {
-  const material = input.closest(".material");
-  if (!material || material.querySelector(".material__unavailable-note")) return;
-  const note = document.createElement("span");
-  note.className = "material__unavailable-note";
-  note.textContent = "Not available in this color";
-  note.hidden = true;
-  material.append(note);
-});
 
 colorCards.forEach((card) => {
   const input = card.querySelector('input[name="color"]');

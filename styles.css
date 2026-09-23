@@ -879,8 +879,6 @@ button:focus-visible,
 .felt-specs {
   display: grid;
   gap: 0.52rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid #d8d8d3;
 }
 
 .felt-specs > div {
@@ -1102,26 +1100,6 @@ body:has(.felt-dialog[open]) {
 .felt-dialog .material--unavailable {
   filter: grayscale(1);
   opacity: 0.48;
-}
-
-.material__unavailable-note {
-  position: absolute;
-  top: 1.15rem;
-  right: 1.5rem;
-  padding: 0.35rem 0.55rem;
-  border: 1px solid #9a9a96;
-  background: var(--color-off-white);
-  color: #4f4f4b;
-  font-family: var(--font-label);
-  font-size: 0.55rem;
-  font-weight: var(--font-label-weight);
-  letter-spacing: 0.11em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.material__unavailable-note[hidden] {
-  display: none;
 }
 
 .felt-dialog__footer {
@@ -1710,12 +1688,6 @@ body:has(.felt-dialog[open]) {
     grid-template-columns: 1fr;
     align-items: stretch;
     gap: 1.25rem;
-  }
-
-  .material__unavailable-note {
-    position: static;
-    justify-self: start;
-    grid-row: 1;
   }
 
   .materials__options {
