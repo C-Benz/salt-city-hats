@@ -68,7 +68,9 @@ function applyMaterialFilter() {
   });
   materialFilterButtons.forEach((button) => {
     if (!(button instanceof HTMLButtonElement)) return;
-    button.setAttribute("aria-pressed", String(button.dataset.materialFilter === activeMaterialFilter));
+    const buttonFilter = button.dataset.materialFilter;
+    const isActive = buttonFilter === "all" ? activeMaterialFilter === null : buttonFilter === activeMaterialFilter;
+    button.setAttribute("aria-pressed", String(isActive));
   });
   if (hatRail) hatRail.scrollLeft = 0;
   window.requestAnimationFrame(updateCarouselControls);
@@ -283,7 +285,7 @@ colorCards.forEach((card) => {
 materialFilterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     if (!(button instanceof HTMLButtonElement)) return;
-    const requestedFilter = button.dataset.materialFilter || null;
+    const requestedFilter = button.dataset.materialFilter === "all" ? null : button.dataset.materialFilter || null;
     activeMaterialFilter = activeMaterialFilter === requestedFilter ? null : requestedFilter;
     applyMaterialFilter();
   });
