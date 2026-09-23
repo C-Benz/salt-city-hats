@@ -677,6 +677,14 @@ button:focus-visible,
   background: rgba(250, 250, 248, 0.9);
 }
 
+.hat-card__materials > span[title="Rabbit"] img {
+  transform: translateY(-0.18rem);
+}
+
+.hat-card__materials > span[title="Beaver"] img {
+  transform: translateY(0.06rem);
+}
+
 .hat-card__description {
   padding-right: 6.25rem;
 }
