@@ -580,6 +580,10 @@ button:focus-visible,
   scrollbar-width: thin;
 }
 
+.hat-rail:focus-visible {
+  outline: none;
+}
+
 .hat-rail::-webkit-scrollbar {
   height: 3px;
 }
