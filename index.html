@@ -116,7 +116,7 @@
               </div>
             </label>
             <label class="material">
-              <input class="selection-input" type="radio" name="felt" value="80/20 Rabbit-Beaver" data-color-palette="fur" form="contact-form" />
+              <input class="selection-input" type="radio" name="felt" value="80/20 Rabbit-Beaver" data-available-colors="Black" form="contact-form" />
               <div class="material__intro"><span class="material__badge">Balanced upgrade</span><h3>80/20<br />Rabbit-Beaver</h3><p>Added beaver strength without losing softness.</p></div>
               <div class="felt-specs">
                 <div><span>Weather</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
@@ -125,7 +125,7 @@
               </div>
             </label>
             <label class="material">
-              <input class="selection-input" type="radio" name="felt" value="50/50 Rabbit-Beaver" data-color-palette="fur" form="contact-form" />
+              <input class="selection-input" type="radio" name="felt" value="50/50 Rabbit-Beaver" data-available-colors="Black" form="contact-form" />
               <div class="material__intro"><span class="material__badge">Serious wear</span><h3>50/50<br />Rabbit-Beaver</h3><p>Built for regular wear with a luxurious hand.</p></div>
               <div class="felt-specs">
                 <div><span>Weather</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
@@ -134,7 +134,7 @@
               </div>
             </label>
             <label class="material">
-              <input class="selection-input" type="radio" name="felt" value="100% Beaver" data-color-palette="fur" form="contact-form" />
+              <input class="selection-input" type="radio" name="felt" value="100% Beaver" data-available-colors="Black" form="contact-form" />
               <div class="material__intro"><span class="material__badge">Heirloom performance</span><h3>100% Beaver</h3><p>The highest level of longevity and refinement.</p></div>
               <div class="felt-specs">
                 <div><span>Weather</span><span class="felt-rating felt-rating--5" role="img" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
@@ -155,26 +155,15 @@
       </dialog>
 
       <section class="colors" id="hats" aria-labelledby="colors-title">
-        <svg class="material-icon-sprite" aria-hidden="true">
-          <symbol id="icon-sheep" viewBox="0 0 32 32">
-            <path class="material-icon__silhouette" d="M5.2 13.8c.7-3.4 3.6-5.5 7.4-5.5 1.7 0 3.3.5 4.6 1.4 1.2-1.2 2.9-1.9 4.7-1.5 2.2.5 3.8 2.5 3.8 4.8 1.3.5 2.2 1.7 2.2 3.2 0 2-1.6 3.6-3.6 3.6h-1.1l-.5 7.1h-2.5l-.8-7.1h-8.1l-.8 7.1H8l-.4-7.3C5.4 18.9 4.7 16.2 5.2 13.8Zm17.3-3.3c-1.2-.2-2.3.6-2.5 1.8-.2 1.2.6 2.3 1.8 2.5 1.2.2 2.3-.6 2.5-1.8.2-1.2-.6-2.3-1.8-2.5Z" />
-          </symbol>
-          <symbol id="icon-rabbit" viewBox="0 0 32 32">
-            <path class="material-icon__silhouette" d="M5 24.9c1.1-4.4 4.3-7.4 8.4-8.2-.5-2.9-.3-6.6 1.1-11.4.4-1.4 1.3-2.3 2.2-2.1 1.2.2 1.2 2 .9 3.6l-1.5 8.8c.5-.1 1.1-.1 1.6 0 .5-2.7 1.5-6.3 3.5-10.5.6-1.3 1.7-2 2.5-1.6 1.1.5.7 2.2.1 3.7l-3.4 9.4c3.8 1.1 6.4 4.1 6.7 8.3H32v2.5H5v-2.5Z" />
-          </symbol>
-          <symbol id="icon-beaver" viewBox="0 0 32 32">
-            <path class="material-icon__silhouette" d="M2.5 23.1c1.8-3.2 4.7-5 8.1-5.6.8-4.8 4.7-8.2 9.8-8.2 1.1 0 2.2.2 3.2.5l1-2.4 2.1 3.5c1.8 1.4 3 3.6 3.3 6.1l2 .9-2.1 2c-.8 4.3-4.5 7.3-9.4 7.3H11c-4.4 0-7.5-1.3-8.5-4.1ZM0 18.9c0-4 2.3-7.4 6-9.2 1.4-.7 2.8.7 2.2 2.1l-3.4 8.5L0 18.9Z" />
-          </symbol>
-        </svg>
         <div class="colors__heading">
           <div>
             <p class="eyebrow">Step 01 <span aria-hidden="true">—</span> Color</p>
             <h2 id="colors-title">Pick your<span class="accent">color.</span></h2>
             <p class="color-context" data-color-context aria-live="polite">Choose a color to compare its available felts.</p>
             <div class="material-legend" aria-label="Color availability icon legend">
-              <span><svg aria-hidden="true"><use href="#icon-sheep"></use></svg>Wool</span>
-              <span><svg aria-hidden="true"><use href="#icon-rabbit"></use></svg>Rabbit</span>
-              <span><svg aria-hidden="true"><use href="#icon-beaver"></use></svg>Beaver</span>
+              <span><img src="/assets/material-icons/wool.svg" alt="" />Wool</span>
+              <span><img src="/assets/material-icons/rabbit.svg" alt="" />Rabbit</span>
+              <span><img src="/assets/material-icons/beaver.svg" alt="" />Beaver</span>
             </div>
           </div>
           <div class="colors__controls" aria-label="Hat color carousel controls">

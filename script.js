@@ -35,16 +35,18 @@ if (hatRail) {
 function addMaterialAvailability() {
   colorCards.forEach((card) => {
     const palettes = card.dataset.palettes?.split(" ") || [];
+    const color = card.querySelector('input[name="color"]')?.value;
     const materials = [];
-    if (palettes.includes("wool")) materials.push(["sheep", "Wool"]);
-    if (palettes.includes("fur")) materials.push(["rabbit", "Rabbit"], ["beaver", "Beaver"]);
+    if (palettes.includes("wool")) materials.push(["wool", "Wool"]);
+    if (palettes.includes("fur")) materials.push(["rabbit", "Rabbit"]);
+    if (color === "Black") materials.push(["beaver", "Beaver"]);
 
     const availability = document.createElement("span");
     availability.className = "hat-card__materials";
     availability.setAttribute("role", "img");
     availability.setAttribute("aria-label", `Available in ${materials.map(([, label]) => label).join(", ")}`);
     availability.innerHTML = materials
-      .map(([icon, label]) => `<span title="${label}"><svg aria-hidden="true"><use href="#icon-${icon}"></use></svg></span>`)
+      .map(([icon, label]) => `<span title="${label}"><img src="/assets/material-icons/${icon}.svg" alt="" /></span>`)
       .join("");
     card.append(availability);
   });
@@ -172,7 +174,12 @@ function updateFeltAvailability() {
   feltInputs.forEach((input) => {
     if (!(input instanceof HTMLInputElement)) return;
     const material = input.closest(".material");
-    const unavailable = palettes.length > 0 && !palettes.includes(input.dataset.colorPalette || "");
+    const availableColors = input.dataset.availableColors?.split(" ").filter(Boolean) || [];
+    const unavailable = selectedColor instanceof HTMLInputElement && (
+      availableColors.length > 0
+        ? !availableColors.includes(selectedColor.value)
+        : palettes.length > 0 && !palettes.includes(input.dataset.colorPalette || "")
+    );
     input.disabled = unavailable;
     material?.classList.toggle("material--unavailable", unavailable);
     material?.setAttribute("aria-disabled", String(unavailable));
