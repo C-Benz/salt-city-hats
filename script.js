@@ -8,12 +8,13 @@ const selectionGroups = ["felt", "color", "headSize"];
 const feltInputs = document.querySelectorAll('input[name="felt"]');
 const colorCards = Array.from(document.querySelectorAll(".hat-card[data-palettes]"));
 const colorContext = document.querySelector("[data-color-context]");
+const feltDialog = document.querySelector(".felt-dialog");
+const dialogConfirm = document.querySelector("[data-dialog-confirm]");
+const dialogStatus = document.querySelector("[data-dialog-status]");
 const mobileNavigation = window.matchMedia("(max-width: 1080px)");
-
-// Color is the visual first step, followed by felt compatibility.
-const colorsSection = document.querySelector(".colors");
-const materialsSection = document.querySelector(".materials");
-if (colorsSection && materialsSection) materialsSection.before(colorsSection);
+let confirmedColor = null;
+let confirmedFelt = null;
+let activeColorCard = null;
 
 const colorDisplayOrder = [
   "Salt", "Sand", "Bone", "Fossil",
@@ -173,6 +174,7 @@ function updateFeltAvailability() {
     const material = input.closest(".material");
     const unavailable = palettes.length > 0 && !palettes.includes(input.dataset.colorPalette || "");
     input.disabled = unavailable;
+    if (material instanceof HTMLElement) material.hidden = unavailable;
     material?.classList.toggle("material--unavailable", unavailable);
     material?.setAttribute("aria-disabled", String(unavailable));
 
@@ -180,12 +182,59 @@ function updateFeltAvailability() {
   });
 
   if (colorContext) {
-    colorContext.textContent = selectedColor instanceof HTMLInputElement
-      ? `${selectedColor.value} selected. Compatible felts are available in Step 02. Click this color again to clear your choice.`
-      : "Choose a color to see which felts are available. Click it again to clear your choice.";
+    colorContext.textContent = confirmedColor && confirmedFelt
+      ? `${confirmedColor} in ${confirmedFelt} selected. Choose any color to view or edit its felt options.`
+      : "Choose a color to compare its available felts.";
   }
 
+  const selectedFelt = document.querySelector('input[name="felt"]:checked');
+  if (dialogConfirm instanceof HTMLButtonElement) dialogConfirm.disabled = !(selectedFelt instanceof HTMLInputElement);
+  if (dialogStatus) {
+    dialogStatus.textContent = selectedFelt instanceof HTMLInputElement
+      ? `${selectedColor?.value || "Color"} in ${selectedFelt.value}`
+      : "Select a felt to complete your color choice.";
+  }
   updateOrderSummary();
+}
+
+function restoreConfirmedSelection() {
+  document.querySelectorAll('input[name="color"], input[name="felt"]').forEach((input) => {
+    if (!(input instanceof HTMLInputElement)) return;
+    input.checked = input.name === "color" ? input.value === confirmedColor : input.value === confirmedFelt;
+  });
+  updateFeltAvailability();
+}
+
+function openFeltDialog(card) {
+  if (!(feltDialog instanceof HTMLDialogElement)) return;
+  const input = card.querySelector('input[name="color"]');
+  const sourceImage = card.querySelector("img");
+  const sourceNumber = card.querySelector(".hat-card__number");
+  const sourceDescription = card.querySelector(".hat-card__description");
+  if (!(input instanceof HTMLInputElement) || !(sourceImage instanceof HTMLImageElement)) return;
+
+  activeColorCard = card;
+  input.checked = true;
+  updateFeltAvailability();
+
+  const dialogImage = feltDialog.querySelector("[data-dialog-image]");
+  const dialogColor = feltDialog.querySelector("[data-dialog-color]");
+  const dialogNumber = feltDialog.querySelector("[data-dialog-number]");
+  const dialogDescription = feltDialog.querySelector("[data-dialog-color-description]");
+  if (dialogImage instanceof HTMLImageElement) {
+    dialogImage.src = sourceImage.src;
+    dialogImage.alt = `${input.value} Western felt hat`;
+  }
+  if (dialogColor) dialogColor.textContent = input.value;
+  if (dialogNumber) dialogNumber.textContent = sourceNumber?.textContent || "";
+  if (dialogDescription) dialogDescription.textContent = sourceDescription?.textContent || "";
+
+  if (!feltDialog.open) feltDialog.showModal();
+}
+
+function cancelFeltDialog() {
+  restoreConfirmedSelection();
+  if (feltDialog instanceof HTMLDialogElement && feltDialog.open) feltDialog.close();
 }
 
 colorCards.forEach((card) => {
@@ -193,26 +242,31 @@ colorCards.forEach((card) => {
   card.hidden = false;
   card.setAttribute("aria-disabled", "false");
   if (!(input instanceof HTMLInputElement)) return;
+  card.addEventListener("click", () => window.setTimeout(() => openFeltDialog(card), 0));
+});
 
-  let wasChecked = false;
-  card.addEventListener("pointerdown", () => {
-    wasChecked = input.checked;
-  });
-  card.addEventListener("click", (event) => {
-    if (!wasChecked) return;
-    event.preventDefault();
-    input.checked = false;
-    input.dispatchEvent(new Event("change", { bubbles: true }));
-    wasChecked = false;
-  });
-  input.addEventListener("keydown", (event) => {
-    if ((event.key === " " || event.key === "Enter") && input.checked) {
-      event.preventDefault();
-      input.checked = false;
-      input.dispatchEvent(new Event("change", { bubbles: true }));
-    }
-  });
-  input.addEventListener("change", updateFeltAvailability);
+feltInputs.forEach((input) => input.addEventListener("change", updateFeltAvailability));
+
+document.querySelectorAll("[data-dialog-close]").forEach((button) => button.addEventListener("click", cancelFeltDialog));
+
+feltDialog?.addEventListener("cancel", (event) => {
+  event.preventDefault();
+  cancelFeltDialog();
+});
+
+feltDialog?.addEventListener("click", (event) => {
+  if (event.target === feltDialog) cancelFeltDialog();
+});
+
+dialogConfirm?.addEventListener("click", () => {
+  const selectedColor = document.querySelector('input[name="color"]:checked');
+  const selectedFelt = document.querySelector('input[name="felt"]:checked');
+  if (!(selectedColor instanceof HTMLInputElement) || !(selectedFelt instanceof HTMLInputElement)) return;
+  confirmedColor = selectedColor.value;
+  confirmedFelt = selectedFelt.value;
+  updateFeltAvailability();
+  if (feltDialog instanceof HTMLDialogElement) feltDialog.close();
+  activeColorCard?.focus?.();
 });
 
 addMaterialAvailability();

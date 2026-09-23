@@ -25,10 +25,9 @@
           </a>
           <nav class="site-nav" id="primary-navigation" aria-label="Primary">
             <a href="#story" data-nav-meta="Intro">Our Story</a>
-            <a href="#hats" data-nav-meta="01">Color</a>
-            <a href="#materials" data-nav-meta="02">Felt</a>
-            <a href="#size" data-nav-meta="03">Size</a>
-            <a href="#contact" data-nav-meta="04">Contact</a>
+            <a href="#hats" data-nav-meta="01">Color + Felt</a>
+            <a href="#size" data-nav-meta="02">Size</a>
+            <a href="#contact" data-nav-meta="03">Contact</a>
             <a href="#process" data-nav-meta="Craft">Process</a>
           </nav>
           <div class="header-contact">
@@ -72,19 +71,31 @@
         </figure>
       </section>
 
-      <div class="builder-intro" aria-label="Build your hat in four steps">
+      <div class="builder-intro" aria-label="Build your hat in three steps">
         <strong>Build your hat</strong>
-        <span>Four choices. One made-for-you hat.</span>
-        <b aria-hidden="true">01—04</b>
+        <span>Three choices. One made-for-you hat.</span>
+        <b aria-hidden="true">01—03</b>
       </div>
 
-      <section class="materials" id="materials" aria-labelledby="materials-title">
-        <div class="section-heading">
-          <p class="eyebrow">Step 02 <span aria-hidden="true">—</span> Felt</p>
-          <h2 id="materials-title">Choose your <span class="accent">felt.</span></h2>
-          <p>Choose the feel, performance and longevity you want. Options that aren't made in your selected color will be shown unavailable.</p>
-        </div>
-        <div class="materials__options">
+      <dialog class="felt-dialog" aria-labelledby="felt-dialog-title" aria-describedby="felt-dialog-description">
+        <div class="felt-dialog__layout">
+          <div class="felt-dialog__color">
+            <button class="felt-dialog__close" type="button" data-dialog-close aria-label="Close felt selection">×</button>
+            <p class="eyebrow">Your color</p>
+            <span class="felt-dialog__number" data-dialog-number aria-hidden="true">01</span>
+            <img data-dialog-image src="/assets/hat-color-salt-v3.png" alt="" />
+            <div class="felt-dialog__color-meta">
+              <h2 data-dialog-color>Salt</h2>
+              <span data-dialog-color-description>Cool light grey</span>
+            </div>
+          </div>
+          <div class="felt-dialog__choices">
+            <div class="felt-dialog__heading">
+              <p class="eyebrow">Available in</p>
+              <h2 id="felt-dialog-title">Choose your <span class="accent">felt.</span></h2>
+              <p id="felt-dialog-description">Compare the feel, performance and longevity available in your selected color.</p>
+            </div>
+            <div class="materials__options">
           <div class="materials__list">
             <label class="material">
               <input class="selection-input" type="radio" name="felt" value="Australian Wool" data-color-palette="wool" form="contact-form" required />
@@ -132,8 +143,17 @@
               </div>
             </label>
           </div>
+            </div>
+            <div class="felt-dialog__footer">
+              <p data-dialog-status>Select a felt to complete your color choice.</p>
+              <button class="button button--primary" type="button" data-dialog-confirm disabled>
+                Choose this combination
+                <svg aria-hidden="true" class="arrow" viewBox="0 0 36 18"><path d="M1 9h32M26 2l7 7-7 7"></path></svg>
+              </button>
+            </div>
+          </div>
         </div>
-      </section>
+      </dialog>
 
       <section class="colors" id="hats" aria-labelledby="colors-title">
         <svg class="material-icon-sprite" aria-hidden="true">
@@ -151,7 +171,7 @@
           <div>
             <p class="eyebrow">Step 01 <span aria-hidden="true">—</span> Color</p>
             <h2 id="colors-title">Pick your<span class="accent">color.</span></h2>
-            <p class="color-context" data-color-context aria-live="polite">Choose a color to see which felts are available. Click it again to clear your choice.</p>
+            <p class="color-context" data-color-context aria-live="polite">Choose a color to compare its available felts.</p>
             <div class="material-legend" aria-label="Color availability icon legend">
               <span><svg aria-hidden="true"><use href="#icon-sheep"></use></svg>Wool</span>
               <span><svg aria-hidden="true"><use href="#icon-rabbit"></use></svg>Rabbit</span>
@@ -247,7 +267,7 @@
 
       <section class="sizing" id="size" aria-labelledby="sizing-title">
         <div class="section-heading">
-          <p class="eyebrow">Step 03 <span aria-hidden="true">—</span> Size</p>
+          <p class="eyebrow">Step 02 <span aria-hidden="true">—</span> Size</p>
           <h2 id="sizing-title">Find your <span class="accent">fit.</span></h2>
           <p>Measure around your head where the hat will sit. Keep the tape level and comfortably snug, then choose the closest measurement.</p>
         </div>
@@ -282,7 +302,7 @@
 
       <section class="contact" id="contact" aria-labelledby="contact-title">
         <div class="contact__primary">
-          <p class="eyebrow">Step 04 <span aria-hidden="true">—</span> Send your request</p>
+          <p class="eyebrow">Step 03 <span aria-hidden="true">—</span> Send your request</p>
           <h2 id="contact-title">Let's make<br /><span class="accent">your hat.</span></h2>
           <p class="contact__phone">Call or text<br /><a href="tel:+18019990655">801-999-0655</a></p>
           <div class="contact__actions">

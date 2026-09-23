@@ -927,6 +927,199 @@ button:focus-visible,
   color: var(--color-white);
 }
 
+body:has(.felt-dialog[open]) {
+  overflow: hidden;
+}
+
+.felt-dialog {
+  width: min(92rem, calc(100vw - 3rem));
+  max-width: none;
+  height: min(52rem, calc(100dvh - 3rem));
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: var(--color-white);
+  color: var(--color-black);
+  box-shadow: 0 2rem 7rem rgba(0, 0, 0, 0.35);
+}
+
+.felt-dialog::backdrop {
+  background: rgba(10, 10, 10, 0.76);
+  backdrop-filter: blur(3px);
+}
+
+.felt-dialog__layout {
+  display: grid;
+  grid-template-columns: minmax(22rem, 0.78fr) minmax(34rem, 1.22fr);
+  height: 100%;
+}
+
+.felt-dialog__color {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: clamp(2rem, 3vw, 3.5rem);
+  overflow: hidden;
+  background: var(--color-builder-alt);
+}
+
+.felt-dialog__close {
+  position: absolute;
+  z-index: 4;
+  top: 1.25rem;
+  right: 1.25rem;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0 0 0.2rem;
+  border: 1px solid #cfcfca;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.felt-dialog__number {
+  position: absolute;
+  top: 0.2rem;
+  left: 0.2rem;
+  color: #e3e3de;
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 13vw, 13rem);
+  letter-spacing: -0.08em;
+  line-height: 1;
+}
+
+.felt-dialog__color > img {
+  position: relative;
+  z-index: 1;
+  width: 125%;
+  height: min(54vh, 31rem);
+  margin: auto 0 auto -12.5%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.felt-dialog__color-meta {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--color-accent);
+}
+
+.felt-dialog__color-meta h2,
+.felt-dialog__heading h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 0.86;
+  text-transform: uppercase;
+}
+
+.felt-dialog__color-meta > span {
+  color: #686864;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.felt-dialog__choices {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(2rem, 3vw, 3.5rem);
+}
+
+.felt-dialog__heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 22rem);
+  grid-template-areas: "label copy" "title copy";
+  align-items: end;
+  gap: 0 2rem;
+}
+
+.felt-dialog__heading .eyebrow {
+  grid-area: label;
+}
+
+.felt-dialog__heading h2 {
+  grid-area: title;
+  font-size: clamp(3.2rem, 4.5vw, 5rem);
+}
+
+.felt-dialog__heading h2 .accent {
+  display: block;
+}
+
+.felt-dialog__heading > p:last-child {
+  grid-area: copy;
+  margin: 0 0 0.25rem;
+  color: #565653;
+  line-height: 1.5;
+}
+
+.felt-dialog .materials__options {
+  min-height: 0;
+  margin-top: 2rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.felt-dialog .materials__list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.felt-dialog .material {
+  min-height: 14rem;
+}
+
+.felt-dialog .material[hidden] {
+  display: none;
+}
+
+.felt-dialog__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #d8d8d3;
+}
+
+.felt-dialog__footer p {
+  margin: 0;
+  color: #686864;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.felt-dialog__footer .button {
+  flex: 0 0 auto;
+}
+
+.felt-dialog__footer .button:disabled {
+  cursor: not-allowed;
+  filter: grayscale(1);
+  opacity: 0.4;
+}
+
 .sizing {
   padding: clamp(4rem, 5vw, 5rem) var(--space-page);
   border-top: clamp(0.5rem, 0.8vw, 0.75rem) solid var(--color-builder-alt);
@@ -1246,6 +1439,64 @@ button:focus-visible,
   }
 }
 
+@media (max-width: 900px) {
+  .felt-dialog {
+    width: 100vw;
+    height: 100dvh;
+  }
+
+  .felt-dialog__layout {
+    display: block;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .felt-dialog__color {
+    min-height: 21rem;
+    padding: 1.5rem var(--space-page);
+  }
+
+  .felt-dialog__color > img {
+    width: min(125%, 34rem);
+    height: 14rem;
+    margin: 0 auto;
+  }
+
+  .felt-dialog__number {
+    font-size: 8rem;
+  }
+
+  .felt-dialog__color-meta {
+    margin-top: auto;
+  }
+
+  .felt-dialog__choices {
+    display: block;
+    padding: 2.25rem var(--space-page) 2rem;
+  }
+
+  .felt-dialog__heading {
+    display: block;
+  }
+
+  .felt-dialog__heading > p:last-child {
+    margin-top: 1.25rem;
+  }
+
+  .felt-dialog .materials__options {
+    overflow: visible;
+  }
+
+  .felt-dialog__footer {
+    position: sticky;
+    z-index: 5;
+    bottom: -2rem;
+    margin: 1.5rem calc(-1 * var(--space-page)) -2rem;
+    padding: 1rem var(--space-page);
+    background: var(--color-white);
+  }
+}
+
 @media (max-width: 760px) {
   .hero {
     height: max(49rem, 100svh);
@@ -1419,6 +1670,10 @@ button:focus-visible,
     grid-template-columns: 1fr;
   }
 
+  .felt-dialog .materials__list {
+    grid-template-columns: 1fr;
+  }
+
   .materials__options {
     margin-top: 2rem;
   }
@@ -1426,6 +1681,15 @@ button:focus-visible,
   .material {
     min-height: 0;
     padding: 1.4rem;
+  }
+
+  .felt-dialog__footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .felt-dialog__footer .button {
+    width: 100%;
   }
 
   .sizing__content {
