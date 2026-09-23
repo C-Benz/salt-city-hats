@@ -456,7 +456,6 @@ button:focus-visible,
   margin: clamp(4.5rem, 8vw, 8rem) 0 0 -9%;
   aspect-ratio: 3 / 2;
   object-fit: contain;
-  mix-blend-mode: multiply;
   transition: transform 240ms ease;
 }
 

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="310" viewBox="0 0 720 310">
+  <rect width="720" height="310" fill="#f5f0e7"/>
+  <style>
+    text { font-family: ui-sans-serif, system-ui, sans-serif; fill: #3c382f }
+    .label { font-size: 18px; font-weight: 650; text-anchor: middle }
+    .note { font-size: 13px; fill: #756e62; text-anchor: middle }
+  </style>
+  <g color="#211f1b">
+    <image href="beaver.svg" x="65" y="40" width="120" height="120"/>
+    <image href="rabbit.svg" x="300" y="40" width="120" height="120"/>
+    <image href="sheep.svg" x="535" y="40" width="120" height="120"/>
+    <image href="beaver.svg" x="113" y="212" width="24" height="24"/>
+    <image href="rabbit.svg" x="348" y="212" width="24" height="24"/>
+    <image href="sheep.svg" x="583" y="212" width="24" height="24"/>
+  </g>
+  <text class="label" x="125" y="188">Beaver</text>
+  <text class="label" x="360" y="188">Rabbit</text>
+  <text class="label" x="595" y="188">Sheep</text>
+  <text class="note" x="125" y="258">24 px</text>
+  <text class="note" x="360" y="258">24 px</text>
+  <text class="note" x="595" y="258">24 px</text>
+</svg>

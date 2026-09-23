@@ -2,13 +2,13 @@ import { useRef, useState } from "react";
 import { siteConfig } from "./siteConfig";
 
 const hats = [
-  { name: "Salt", description: "Cool light grey", image: "/assets/hat-silver-belly.png" },
-  { name: "Bone", description: "Warm natural beige", image: "/assets/hat-fawn.png" },
-  { name: "Fossil", description: "Warm taupe", image: "/assets/hat-camel.png" },
-  { name: "Canyon", description: "Deep brown", image: "/assets/hat-dark-brown.png" },
-  { name: "Wheat", description: "Golden tan", image: "/assets/hat-tan.png" },
-  { name: "Juniper", description: "Moss olive", image: "/assets/hat-dark-green.png" },
-  { name: "Black", description: "Soft black", image: "/assets/hat-black.png" },
+  { name: "Salt", description: "Cool light grey", image: "/assets/hat-color-salt-v3.png" },
+  { name: "Bone", description: "Warm natural beige", image: "/assets/hat-color-bone-v2.png" },
+  { name: "Fossil", description: "Warm taupe", image: "/assets/hat-color-fossil-v5.png" },
+  { name: "Canyon", description: "Deep brown", image: "/assets/hat-color-canyon-v3.png" },
+  { name: "Wheat", description: "Golden tan", image: "/assets/hat-color-wheat-v5.png" },
+  { name: "Juniper", description: "Moss olive", image: "/assets/hat-color-juniper-v3.png" },
+  { name: "Black", description: "Soft black", image: "/assets/hat-color-black.png" },
 ] as const;
 
 function Arrow({ direction = "right" }: { direction?: "left" | "right" }) {

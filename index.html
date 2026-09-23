@@ -78,11 +78,85 @@
         <b aria-hidden="true">01—04</b>
       </div>
 
+      <section class="materials" id="materials" aria-labelledby="materials-title">
+        <div class="section-heading">
+          <p class="eyebrow">Step 02 <span aria-hidden="true">—</span> Felt</p>
+          <h2 id="materials-title">Choose your <span class="accent">felt.</span></h2>
+          <p>Choose the feel, performance and longevity you want. Options that aren't made in your selected color will be shown unavailable.</p>
+        </div>
+        <div class="materials__options">
+          <div class="materials__list">
+            <label class="material">
+              <input class="selection-input" type="radio" name="felt" value="Australian Wool" data-color-palette="wool" form="contact-form" required />
+              <div class="material__intro"><span class="material__badge">Everyday value</span><h3>Australian Wool</h3><p>Reliable performance at an approachable price.</p></div>
+              <div class="felt-specs">
+                <div><span>Weather</span><span class="felt-rating felt-rating--2" role="img" aria-label="2 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Resilience</span><span class="felt-rating felt-rating--2" role="img" aria-label="2 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Finish</span><span class="felt-rating felt-rating--2" role="img" aria-label="2 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+              </div>
+            </label>
+            <label class="material">
+              <input class="selection-input" type="radio" name="felt" value="Rabbit" data-color-palette="fur" form="contact-form" />
+              <div class="material__intro"><span class="material__badge">Refined feel</span><h3>Rabbit</h3><p>Softer in the hand with a smoother finish.</p></div>
+              <div class="felt-specs">
+                <div><span>Weather</span><span class="felt-rating felt-rating--3" role="img" aria-label="3 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Resilience</span><span class="felt-rating felt-rating--3" role="img" aria-label="3 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Finish</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+              </div>
+            </label>
+            <label class="material">
+              <input class="selection-input" type="radio" name="felt" value="80/20 Rabbit-Beaver" data-color-palette="fur" form="contact-form" />
+              <div class="material__intro"><span class="material__badge">Balanced upgrade</span><h3>80/20<br />Rabbit-Beaver</h3><p>Added beaver strength without losing softness.</p></div>
+              <div class="felt-specs">
+                <div><span>Weather</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Resilience</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Finish</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+              </div>
+            </label>
+            <label class="material">
+              <input class="selection-input" type="radio" name="felt" value="50/50 Rabbit-Beaver" data-color-palette="fur" form="contact-form" />
+              <div class="material__intro"><span class="material__badge">Serious wear</span><h3>50/50<br />Rabbit-Beaver</h3><p>Built for regular wear with a luxurious hand.</p></div>
+              <div class="felt-specs">
+                <div><span>Weather</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Resilience</span><span class="felt-rating felt-rating--5" role="img" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Finish</span><span class="felt-rating felt-rating--5" role="img" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+              </div>
+            </label>
+            <label class="material">
+              <input class="selection-input" type="radio" name="felt" value="100% Beaver" data-color-palette="fur" form="contact-form" />
+              <div class="material__intro"><span class="material__badge">Heirloom performance</span><h3>100% Beaver</h3><p>The highest level of longevity and refinement.</p></div>
+              <div class="felt-specs">
+                <div><span>Weather</span><span class="felt-rating felt-rating--5" role="img" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Resilience</span><span class="felt-rating felt-rating--5" role="img" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div><span>Finish</span><span class="felt-rating felt-rating--5" role="img" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </section>
+
       <section class="colors" id="hats" aria-labelledby="colors-title">
+        <svg class="material-icon-sprite" aria-hidden="true">
+          <symbol id="icon-sheep" viewBox="0 0 32 32">
+            <path class="material-icon__silhouette" d="M5.2 13.8c.7-3.4 3.6-5.5 7.4-5.5 1.7 0 3.3.5 4.6 1.4 1.2-1.2 2.9-1.9 4.7-1.5 2.2.5 3.8 2.5 3.8 4.8 1.3.5 2.2 1.7 2.2 3.2 0 2-1.6 3.6-3.6 3.6h-1.1l-.5 7.1h-2.5l-.8-7.1h-8.1l-.8 7.1H8l-.4-7.3C5.4 18.9 4.7 16.2 5.2 13.8Zm17.3-3.3c-1.2-.2-2.3.6-2.5 1.8-.2 1.2.6 2.3 1.8 2.5 1.2.2 2.3-.6 2.5-1.8.2-1.2-.6-2.3-1.8-2.5Z" />
+          </symbol>
+          <symbol id="icon-rabbit" viewBox="0 0 32 32">
+            <path class="material-icon__silhouette" d="M5 24.9c1.1-4.4 4.3-7.4 8.4-8.2-.5-2.9-.3-6.6 1.1-11.4.4-1.4 1.3-2.3 2.2-2.1 1.2.2 1.2 2 .9 3.6l-1.5 8.8c.5-.1 1.1-.1 1.6 0 .5-2.7 1.5-6.3 3.5-10.5.6-1.3 1.7-2 2.5-1.6 1.1.5.7 2.2.1 3.7l-3.4 9.4c3.8 1.1 6.4 4.1 6.7 8.3H32v2.5H5v-2.5Z" />
+          </symbol>
+          <symbol id="icon-beaver" viewBox="0 0 32 32">
+            <path class="material-icon__silhouette" d="M2.5 23.1c1.8-3.2 4.7-5 8.1-5.6.8-4.8 4.7-8.2 9.8-8.2 1.1 0 2.2.2 3.2.5l1-2.4 2.1 3.5c1.8 1.4 3 3.6 3.3 6.1l2 .9-2.1 2c-.8 4.3-4.5 7.3-9.4 7.3H11c-4.4 0-7.5-1.3-8.5-4.1ZM0 18.9c0-4 2.3-7.4 6-9.2 1.4-.7 2.8.7 2.2 2.1l-3.4 8.5L0 18.9Z" />
+          </symbol>
+        </svg>
         <div class="colors__heading">
           <div>
             <p class="eyebrow">Step 01 <span aria-hidden="true">—</span> Color</p>
             <h2 id="colors-title">Pick your<span class="accent">color.</span></h2>
+            <p class="color-context" data-color-context aria-live="polite">Choose a color to see which felts are available. Click it again to clear your choice.</p>
+            <div class="material-legend" aria-label="Color availability icon legend">
+              <span><svg aria-hidden="true"><use href="#icon-sheep"></use></svg>Wool</span>
+              <span><svg aria-hidden="true"><use href="#icon-rabbit"></use></svg>Rabbit</span>
+              <span><svg aria-hidden="true"><use href="#icon-beaver"></use></svg>Beaver</span>
+            </div>
           </div>
           <div class="colors__controls" aria-label="Hat color carousel controls">
             <button type="button" data-scroll-direction="-1" aria-label="Previous hat colors">
@@ -94,108 +168,81 @@
           </div>
         </div>
 
-        <div class="hat-rail" tabindex="0" aria-label="Seven available hat colors">
-          <label class="hat-card">
+        <div class="hat-rail" tabindex="0" aria-label="Available hat colors">
+          <label class="hat-card" data-palettes="wool fur" hidden>
             <input class="selection-input" type="radio" name="color" value="Salt" form="contact-form" required />
             <span class="hat-card__number" aria-hidden="true">01</span>
-            <img src="/assets/hat-silver-belly.png" alt="Salt Western felt hat" />
+            <img src="/assets/hat-color-salt-v3.png" alt="Salt Western felt hat" />
             <div class="hat-card__meta"><h3>Salt</h3><span class="hat-card__rule"></span><span class="hat-card__description">Cool light grey</span></div>
           </label>
-          <label class="hat-card">
+          <label class="hat-card" data-palettes="wool" hidden>
             <input class="selection-input" type="radio" name="color" value="Bone" form="contact-form" />
             <span class="hat-card__number" aria-hidden="true">02</span>
-            <img src="/assets/hat-fawn.png" alt="Bone Western felt hat" />
+            <img src="/assets/hat-color-bone-v2.png" alt="Bone Western felt hat" />
             <div class="hat-card__meta"><h3>Bone</h3><span class="hat-card__rule"></span><span class="hat-card__description">Warm natural beige</span></div>
           </label>
-          <label class="hat-card">
+          <label class="hat-card" data-palettes="fur" hidden>
+            <input class="selection-input" type="radio" name="color" value="Sand" form="contact-form" />
+            <span class="hat-card__number" aria-hidden="true">02</span>
+            <img class="hat-card__image--corner-cleanup" src="/assets/hat-color-sand-v2.png" alt="Sand rabbit felt hat" />
+            <div class="hat-card__meta"><h3>Sand</h3><span class="hat-card__rule"></span><span class="hat-card__description">Warm sandy beige</span></div>
+          </label>
+          <label class="hat-card" data-palettes="wool fur" hidden>
             <input class="selection-input" type="radio" name="color" value="Fossil" form="contact-form" />
             <span class="hat-card__number" aria-hidden="true">03</span>
-            <img src="/assets/hat-camel.png" alt="Fossil Western felt hat" />
+            <img src="/assets/hat-color-fossil-v5.png" alt="Fossil Western felt hat" />
             <div class="hat-card__meta"><h3>Fossil</h3><span class="hat-card__rule"></span><span class="hat-card__description">Warm taupe</span></div>
           </label>
-          <label class="hat-card">
+          <label class="hat-card" data-palettes="wool fur" hidden>
             <input class="selection-input" type="radio" name="color" value="Canyon" form="contact-form" />
             <span class="hat-card__number" aria-hidden="true">04</span>
-            <img src="/assets/hat-dark-brown.png" alt="Canyon Western felt hat" loading="lazy" />
+            <img src="/assets/hat-color-canyon-v3.png" alt="Canyon Western felt hat" loading="lazy" />
             <div class="hat-card__meta"><h3>Canyon</h3><span class="hat-card__rule"></span><span class="hat-card__description">Deep brown</span></div>
           </label>
-          <label class="hat-card">
+          <label class="hat-card" data-palettes="wool fur" hidden>
             <input class="selection-input" type="radio" name="color" value="Wheat" form="contact-form" />
             <span class="hat-card__number" aria-hidden="true">05</span>
-            <img src="/assets/hat-tan.png" alt="Wheat Western felt hat" loading="lazy" />
+            <img src="/assets/hat-color-wheat-v5.png" alt="Wheat Western felt hat" loading="lazy" />
             <div class="hat-card__meta"><h3>Wheat</h3><span class="hat-card__rule"></span><span class="hat-card__description">Muted straw</span></div>
           </label>
-          <label class="hat-card">
+          <label class="hat-card" data-palettes="wool" hidden>
             <input class="selection-input" type="radio" name="color" value="Juniper" form="contact-form" />
             <span class="hat-card__number" aria-hidden="true">06</span>
-            <img src="/assets/hat-dark-green.png" alt="Juniper Western felt hat" loading="lazy" />
+            <img src="/assets/hat-color-juniper-v3.png" alt="Juniper Western felt hat" loading="lazy" />
             <div class="hat-card__meta"><h3>Juniper</h3><span class="hat-card__rule"></span><span class="hat-card__description">Moss olive</span></div>
           </label>
-          <label class="hat-card">
+          <label class="hat-card" data-palettes="fur" hidden>
+            <input class="selection-input" type="radio" name="color" value="Mesa" form="contact-form" />
+            <span class="hat-card__number" aria-hidden="true">07</span>
+            <img src="/assets/hat-color-mesa-v3.png" alt="Mesa rabbit felt hat" loading="lazy" />
+            <div class="hat-card__meta"><h3>Mesa</h3><span class="hat-card__rule"></span><span class="hat-card__description">Golden camel</span></div>
+          </label>
+          <label class="hat-card" data-palettes="fur" hidden>
+            <input class="selection-input" type="radio" name="color" value="Coffee" form="contact-form" />
+            <span class="hat-card__number" aria-hidden="true">08</span>
+            <img src="/assets/hat-color-coffee.png" alt="Coffee rabbit felt hat" loading="lazy" />
+            <div class="hat-card__meta"><h3>Coffee</h3><span class="hat-card__rule"></span><span class="hat-card__description">Roasted brown</span></div>
+          </label>
+          <label class="hat-card" data-palettes="fur" hidden>
+            <input class="selection-input" type="radio" name="color" value="Pine" form="contact-form" />
+            <span class="hat-card__number" aria-hidden="true">09</span>
+            <img src="/assets/hat-color-pine.png" alt="Pine rabbit felt hat" loading="lazy" />
+            <div class="hat-card__meta"><h3>Pine</h3><span class="hat-card__rule"></span><span class="hat-card__description">Deep forest green</span></div>
+          </label>
+          <label class="hat-card" data-palettes="fur" hidden>
+            <input class="selection-input" type="radio" name="color" value="Slate" form="contact-form" />
+            <span class="hat-card__number" aria-hidden="true">10</span>
+            <img src="/assets/hat-color-slate.png" alt="Slate rabbit felt hat" loading="lazy" />
+            <div class="hat-card__meta"><h3>Slate</h3><span class="hat-card__rule"></span><span class="hat-card__description">Cool graphite</span></div>
+          </label>
+          <label class="hat-card" data-palettes="wool fur" hidden>
             <input class="selection-input" type="radio" name="color" value="Black" form="contact-form" />
             <span class="hat-card__number" aria-hidden="true">07</span>
-            <img src="/assets/hat-black.png" alt="Black Western felt hat" loading="lazy" />
+            <img src="/assets/hat-color-black.png" alt="Black Western felt hat" loading="lazy" />
             <div class="hat-card__meta"><h3>Black</h3><span class="hat-card__rule"></span><span class="hat-card__description">Soft black</span></div>
           </label>
         </div>
 
-      </section>
-
-      <section class="materials" id="materials" aria-labelledby="materials-title">
-        <div class="section-heading">
-          <p class="eyebrow">Step 02 <span aria-hidden="true">—</span> Felt</p>
-          <h2 id="materials-title">Choose your <span class="accent">felt.</span></h2>
-          <p>Five levels of feel, structure and durability. Color and felt are independent choices.</p>
-        </div>
-        <div class="materials__options">
-          <div class="materials__list">
-            <label class="material">
-              <input class="selection-input" type="radio" name="felt" value="Australian Wool" form="contact-form" required />
-              <div class="material__intro"><span class="material__badge">Everyday value</span><h3>Australian Wool</h3><p>Reliable performance at an approachable price.</p></div>
-              <div class="felt-specs">
-                <div><span>Weather</span><span class="felt-rating felt-rating--2" role="img" aria-label="2 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
-                <div><span>Resilience</span><span class="felt-rating felt-rating--2" role="img" aria-label="2 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
-                <div><span>Finish</span><span class="felt-rating felt-rating--2" role="img" aria-label="2 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
-              </div>
-            </label>
-            <label class="material">
-              <input class="selection-input" type="radio" name="felt" value="Rabbit" form="contact-form" />
-              <div class="material__intro"><span class="material__badge">Refined feel</span><h3>Rabbit</h3><p>Softer in the hand with a smoother finish.</p></div>
-              <div class="felt-specs">
-                <div><span>Weather</span><span class="felt-rating felt-rating--3" role="img" aria-label="3 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
-                <div><span>Resilience</span><span class="felt-rating felt-rating--3" role="img" aria-label="3 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
-                <div><span>Finish</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
-              </div>
-            </label>
-            <label class="material">
-              <input class="selection-input" type="radio" name="felt" value="80/20 Rabbit-Beaver" form="contact-form" />
-              <div class="material__intro"><span class="material__badge">Balanced upgrade</span><h3>80/20<br />Rabbit-Beaver</h3><p>Added beaver strength without losing softness.</p></div>
-              <div class="felt-specs">
-                <div><span>Weather</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
-                <div><span>Resilience</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
-                <div><span>Finish</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
-              </div>
-            </label>
-            <label class="material">
-              <input class="selection-input" type="radio" name="felt" value="50/50 Rabbit-Beaver" form="contact-form" />
-              <div class="material__intro"><span class="material__badge">Serious wear</span><h3>50/50<br />Rabbit-Beaver</h3><p>Built for regular wear with a luxurious hand.</p></div>
-              <div class="felt-specs">
-                <div><span>Weather</span><span class="felt-rating felt-rating--4" role="img" aria-label="4 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
-                <div><span>Resilience</span><span class="felt-rating felt-rating--5" role="img" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
-                <div><span>Finish</span><span class="felt-rating felt-rating--5" role="img" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
-              </div>
-            </label>
-            <label class="material">
-              <input class="selection-input" type="radio" name="felt" value="100% Beaver" form="contact-form" />
-              <div class="material__intro"><span class="material__badge">Heirloom performance</span><h3>100% Beaver</h3><p>The highest level of longevity and refinement.</p></div>
-              <div class="felt-specs">
-                <div><span>Weather</span><span class="felt-rating felt-rating--5" role="img" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
-                <div><span>Resilience</span><span class="felt-rating felt-rating--5" role="img" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
-                <div><span>Finish</span><span class="felt-rating felt-rating--5" role="img" aria-label="5 out of 5"><i></i><i></i><i></i><i></i><i></i></span></div>
-              </div>
-            </label>
-          </div>
-        </div>
       </section>
 
       <section class="sizing" id="size" aria-labelledby="sizing-title">

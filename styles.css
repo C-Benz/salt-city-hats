@@ -387,8 +387,9 @@ button:focus-visible,
 .colors {
   position: relative;
   padding: clamp(4rem, 5vw, 5rem) 0 clamp(3rem, 4vw, 4rem);
+  border-top: clamp(0.5rem, 0.8vw, 0.75rem) solid var(--color-white);
   overflow: hidden;
-  background: var(--color-white);
+  background: var(--color-builder-alt);
 }
 
 .colors__heading {
@@ -446,6 +447,65 @@ button:focus-visible,
   text-transform: uppercase;
 }
 
+.color-context {
+  margin: 1.15rem 0 0;
+  color: #666663;
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: var(--font-label-weight);
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.material-icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.material-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 0.75rem;
+  color: #4f4f4b;
+  font-family: var(--font-label);
+  font-size: 0.67rem;
+  font-weight: var(--font-label-weight);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.material-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.material-legend svg,
+.hat-card__materials svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.material-icon__eye {
+  fill: currentColor;
+  stroke: none;
+}
+
+.material-icon__silhouette {
+  fill: currentColor;
+  stroke: none;
+}
+
 .colors__controls {
   display: flex;
   gap: 1rem;
@@ -485,6 +545,7 @@ button:focus-visible,
   grid-auto-flow: row;
   grid-template-columns: repeat(4, clamp(15.5rem, 22vw, 22rem));
   grid-template-rows: repeat(2, clamp(15.5rem, 17vw, 16.5rem));
+  grid-auto-rows: clamp(15.5rem, 17vw, 16.5rem);
   gap: clamp(0.5rem, 1.2vw, 1.35rem);
   margin-top: clamp(1.5rem, 2.2vw, 2rem);
   padding: 0 var(--space-page) 0.5rem;
@@ -518,7 +579,21 @@ button:focus-visible,
   background: var(--color-off-white);
   scroll-snap-align: start;
   cursor: pointer;
-  transition: box-shadow 180ms ease;
+  transition: box-shadow 180ms ease, opacity 180ms ease, filter 180ms ease;
+}
+
+.hat-card[hidden] {
+  display: none;
+}
+
+.hat-card--unavailable {
+  cursor: not-allowed;
+  filter: grayscale(0.8);
+  opacity: 0.42;
+}
+
+.hat-card--unavailable:hover img {
+  transform: none;
 }
 
 .selection-input,
@@ -562,13 +637,17 @@ button:focus-visible,
   z-index: 1;
   display: block;
   width: 108%;
-  height: calc(100% - 3.6rem);
+  height: calc(100% - 3.9rem);
   max-width: none;
   margin: 1rem 0 0 -4%;
   object-fit: contain;
   object-position: center top;
   mix-blend-mode: multiply;
   transition: transform 240ms ease;
+}
+
+.hat-card__image--corner-cleanup {
+  clip-path: polygon(10% 0, 90% 0, 100% 16%, 100% 80%, 90% 100%, 10% 100%, 0 80%, 0 16%);
 }
 
 .hat-card:hover img {
@@ -581,6 +660,30 @@ button:focus-visible,
   right: 1rem;
   bottom: 0.7rem;
   left: 1rem;
+}
+
+.hat-card__materials {
+  position: absolute;
+  z-index: 3;
+  right: 0.75rem;
+  bottom: 0.6rem;
+  display: flex;
+  gap: 0.3rem;
+  color: #4f4f4b;
+}
+
+.hat-card__materials > span {
+  display: grid;
+  place-items: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 1px solid #d6d6d0;
+  border-radius: 50%;
+  background: rgba(250, 250, 248, 0.9);
+}
+
+.hat-card__description {
+  padding-right: 6.25rem;
 }
 
 .hat-card__description {
@@ -698,8 +801,7 @@ button:focus-visible,
 
 .materials {
   padding: clamp(4rem, 5vw, 5rem) var(--space-page);
-  border-top: clamp(0.5rem, 0.8vw, 0.75rem) solid var(--color-white);
-  background: var(--color-builder-alt);
+  background: var(--color-white);
 }
 
 .materials__options {
@@ -723,12 +825,22 @@ button:focus-visible,
   padding: clamp(1.15rem, 1.6vw, 1.65rem);
   background: var(--color-white);
   cursor: pointer;
-  transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease, opacity 180ms ease, filter 180ms ease;
 }
 
 .material:hover {
   background: var(--color-white);
   transform: translateY(-0.2rem);
+}
+
+.material--unavailable {
+  cursor: not-allowed;
+  filter: grayscale(0.85);
+  opacity: 0.38;
+}
+
+.material--unavailable:hover {
+  transform: none;
 }
 
 .material h3 {
@@ -1250,6 +1362,7 @@ button:focus-visible,
   .hat-rail {
     grid-template-columns: repeat(4, min(58vw, 15.5rem));
     grid-template-rows: repeat(2, 18rem);
+    grid-auto-rows: 18rem;
     margin-top: 2.5rem;
   }
 
@@ -1263,7 +1376,7 @@ button:focus-visible,
 
   .hat-card img {
     width: 112%;
-    height: calc(100% - 3.8rem);
+    height: calc(100% - 4.1rem);
     margin-top: 1.2rem;
     margin-left: -6%;
   }

@@ -4,8 +4,50 @@ const navigationLinks = Array.from(siteNav?.querySelectorAll('a[href^="#"]') || 
 const hatRail = document.querySelector(".hat-rail");
 const carouselButtons = document.querySelectorAll("[data-scroll-direction]");
 const contactForm = document.querySelector("#contact-form");
-const selectionGroups = ["color", "felt", "headSize"];
+const selectionGroups = ["felt", "color", "headSize"];
+const feltInputs = document.querySelectorAll('input[name="felt"]');
+const colorCards = Array.from(document.querySelectorAll(".hat-card[data-palettes]"));
+const colorContext = document.querySelector("[data-color-context]");
 const mobileNavigation = window.matchMedia("(max-width: 1080px)");
+
+// Color is the visual first step, followed by felt compatibility.
+const colorsSection = document.querySelector(".colors");
+const materialsSection = document.querySelector(".materials");
+if (colorsSection && materialsSection) materialsSection.before(colorsSection);
+
+const colorDisplayOrder = [
+  "Salt", "Sand", "Bone", "Fossil",
+  "Wheat", "Mesa", "Coffee", "Canyon",
+  "Juniper", "Pine", "Slate", "Black",
+];
+
+if (hatRail) {
+  colorDisplayOrder.forEach((color, index) => {
+    const card = colorCards.find((candidate) => candidate.querySelector('input[name="color"]')?.value === color);
+    if (!card) return;
+    const number = card.querySelector(".hat-card__number");
+    if (number) number.textContent = String(index + 1).padStart(2, "0");
+    hatRail.append(card);
+  });
+}
+
+function addMaterialAvailability() {
+  colorCards.forEach((card) => {
+    const palettes = card.dataset.palettes?.split(" ") || [];
+    const materials = [];
+    if (palettes.includes("wool")) materials.push(["sheep", "Wool"]);
+    if (palettes.includes("fur")) materials.push(["rabbit", "Rabbit"], ["beaver", "Beaver"]);
+
+    const availability = document.createElement("span");
+    availability.className = "hat-card__materials";
+    availability.setAttribute("role", "img");
+    availability.setAttribute("aria-label", `Available in ${materials.map(([, label]) => label).join(", ")}`);
+    availability.innerHTML = materials
+      .map(([icon, label]) => `<span title="${label}"><svg aria-hidden="true"><use href="#icon-${icon}"></use></svg></span>`)
+      .join("");
+    card.append(availability);
+  });
+}
 
 function updateOrderSummary() {
   const summaries = {
@@ -13,12 +55,15 @@ function updateOrderSummary() {
     felt: document.querySelector("[data-summary-felt]"),
     headSize: document.querySelector("[data-summary-size]"),
   };
+  const placeholders = {
+    felt: "Choose a felt",
+    color: "Choose a color",
+    headSize: "Choose a size",
+  };
 
   selectionGroups.forEach((name) => {
     const selected = document.querySelector(`input[name="${name}"]:checked`);
-    if (selected instanceof HTMLInputElement && summaries[name]) {
-      summaries[name].textContent = selected.value;
-    }
+    if (summaries[name]) summaries[name].textContent = selected instanceof HTMLInputElement ? selected.value : placeholders[name];
   });
 }
 
@@ -117,6 +162,61 @@ function updateCarouselControls() {
     button.disabled = direction < 0 ? hatRail.scrollLeft <= 1 : hatRail.scrollLeft >= maxScroll - 1;
   });
 }
+
+function updateFeltAvailability() {
+  const selectedColor = document.querySelector('input[name="color"]:checked');
+  const selectedCard = selectedColor instanceof HTMLInputElement ? selectedColor.closest(".hat-card") : null;
+  const palettes = selectedCard?.dataset.palettes?.split(" ") || [];
+
+  feltInputs.forEach((input) => {
+    if (!(input instanceof HTMLInputElement)) return;
+    const material = input.closest(".material");
+    const unavailable = palettes.length > 0 && !palettes.includes(input.dataset.colorPalette || "");
+    input.disabled = unavailable;
+    material?.classList.toggle("material--unavailable", unavailable);
+    material?.setAttribute("aria-disabled", String(unavailable));
+
+    if (unavailable && input.checked) input.checked = false;
+  });
+
+  if (colorContext) {
+    colorContext.textContent = selectedColor instanceof HTMLInputElement
+      ? `${selectedColor.value} selected. Compatible felts are available in Step 02. Click this color again to clear your choice.`
+      : "Choose a color to see which felts are available. Click it again to clear your choice.";
+  }
+
+  updateOrderSummary();
+}
+
+colorCards.forEach((card) => {
+  const input = card.querySelector('input[name="color"]');
+  card.hidden = false;
+  card.setAttribute("aria-disabled", "false");
+  if (!(input instanceof HTMLInputElement)) return;
+
+  let wasChecked = false;
+  card.addEventListener("pointerdown", () => {
+    wasChecked = input.checked;
+  });
+  card.addEventListener("click", (event) => {
+    if (!wasChecked) return;
+    event.preventDefault();
+    input.checked = false;
+    input.dispatchEvent(new Event("change", { bubbles: true }));
+    wasChecked = false;
+  });
+  input.addEventListener("keydown", (event) => {
+    if ((event.key === " " || event.key === "Enter") && input.checked) {
+      event.preventDefault();
+      input.checked = false;
+      input.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+  });
+  input.addEventListener("change", updateFeltAvailability);
+});
+
+addMaterialAvailability();
+updateFeltAvailability();
 
 carouselButtons.forEach((button) => {
   button.addEventListener("click", () => {
